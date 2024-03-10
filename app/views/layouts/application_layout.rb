@@ -17,7 +17,7 @@ class ApplicationLayout < ApplicationView
         stylesheet_link_tag "tailwind", "inter-font"
       end
 
-      body(class: "bg-blue-100") do
+      body(class: "bg-blue-100", "hx-headers": "{\"X-CSRF-Token\": \"#{helpers.form_authenticity_token}\"}") do
         main(class: "m-4 bg-slate-100", &block)
       end
 
