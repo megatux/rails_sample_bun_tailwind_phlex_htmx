@@ -60,3 +60,5 @@ end
 gem "rails-htmx", "~> 0.1.3"
 
 gem "phlex-rails", "~> 1.1"
+
+gem "tailwindcss-rails", "~> 2.3"
