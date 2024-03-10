@@ -3,6 +3,11 @@
 class Articles::IndexView < ApplicationView
   def template
     h1 { "Articles index" }
-    p { "Find me in app/views/articles/index_view.rb" }
+
+    10.times do |i|
+      article(class: "m-4 bg-slate-300") {
+        h3 { "This is the element ##{i}" }
+      }
+    end
   end
 end
