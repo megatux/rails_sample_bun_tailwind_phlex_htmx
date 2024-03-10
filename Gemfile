@@ -56,3 +56,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "rails-htmx", "~> 0.1.3"
+
+gem "phlex-rails", "~> 1.1"
