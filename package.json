@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "autoprefixer": "latest",
+    "htmx.org": "^1.9.10",
     "postcss": "latest",
     "tailwindcss": "latest"
   }
