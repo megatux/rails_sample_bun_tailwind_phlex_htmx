@@ -17,12 +17,15 @@ class ApplicationLayout < ApplicationView
         stylesheet_link_tag "tailwind", "inter-font"
       end
 
-      body(class: "bg-blue-100", "hx-headers": "{\"X-CSRF-Token\": \"#{helpers.form_authenticity_token}\"}") do
+      body(class: "bg-blue-300", "hx-headers": "{\"X-CSRF-Token\": \"#{helpers.form_authenticity_token}\"}") do
+        h1(class: "bg-indigo-500 border-2 border-black text-xl text-yellow-100") {
+          p(class: "m-2") { "Welcome to another Rails demo" }
+        }
         main(class: "m-4 bg-slate-100", &block)
       end
 
-      footer(class: "m-4") {
-        p { "Copyright Cristian Molina #{Time.zone.now.year}" }
+      footer(class: "bg-indigo-500 border-2 border-black") {
+        p(class: "m-2") { "Copyright Cristian Molina - #{Time.zone.now.year}" }
       }
     end
   end

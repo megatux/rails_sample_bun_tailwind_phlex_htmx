@@ -12,6 +12,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    render plain: "<br>A new article added at #{Time.zone.now}<br>"
+    render ArticleComponent.new, layout: false
   end
 end
