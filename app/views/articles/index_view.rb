@@ -2,15 +2,19 @@
 
 class Articles::IndexView < ApplicationView
   def template
-    h1(class: "p-2 font-mono font-lg font-bold") { "Articles index" }
+    div(class: "h-16 flex items-center justify-between") {
+      h1(class: "p-2 font-mono font-bold font-lg font-bold") { "Articles index" }
 
-    button("hx-post": articles_path, "hx-swap": "afterend",
-      class: "font-mono rounded border-2 border-black bg-red-200 p-1 m-2 text-sm") {
-      plain "Click to add a new article"
+      button("hx-post": articles_path, "hx-target": "#article-list", "hx-swap": "afterbegin",
+        class: "font-mono rounded border-2 border-black bg-indigo-200 p-1 text-sm") {
+        plain "Add new article"
+      }
     }
 
-    3.times do
-      render ArticleComponent.new
-    end
+    section(id: "article-list") {
+      3.times do
+        render ArticleComponent.new
+      end
+    }
   end
 end

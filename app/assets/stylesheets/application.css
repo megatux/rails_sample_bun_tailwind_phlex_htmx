@@ -1,0 +1,8 @@
+.item-article.htmx-added {
+    opacity: 0;
+}
+
+.item-article {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
