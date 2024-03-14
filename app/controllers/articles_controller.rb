@@ -7,10 +7,6 @@ class ArticlesController < ApplicationController
     render Articles::IndexView.new
   end
 
-  def show
-    render Articles::ShowView.new
-  end
-
   def create
     render ArticleComponent.new, layout: false
   end
