@@ -4,10 +4,14 @@ class ArticlesController < ApplicationController
   layout -> { ApplicationLayout }
 
   def index
-    render Articles::IndexView.new
+    articles = Article.all.order(id: :desc)
+    render Articles::IndexView.new(articles)
   end
 
   def create
-    render ArticleComponent.new, layout: false
+    new_article = Article.create!(
+      name: Faker::Lorem.sentence, details: Faker::Lorem.paragraph, published: true, stock: 0
+    )
+    render ArticleComponent.new(new_article), layout: false
   end
 end

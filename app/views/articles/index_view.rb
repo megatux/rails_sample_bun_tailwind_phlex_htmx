@@ -4,6 +4,10 @@ class Articles::IndexView < ApplicationView
   HEAD_STYLE = "p-2 font-mono font-bold font-lg font-bold"
   BUTTON_STYLE = "font-mono rounded border-2 border-black bg-indigo-200 p-1 text-sm transition-colors focus-ring-2 focus:ring-indigo-800 hover:bg-indigo-100"
 
+  def initialize(articles)
+    @articles = articles
+  end
+
   def template
     div(class: "h-16 flex items-center justify-between") {
       h1(class: HEAD_STYLE) { "Articles index" }
@@ -22,8 +26,8 @@ class Articles::IndexView < ApplicationView
   private
 
   def articles
-    3.times.map do
-      ArticleComponent.new
+    @articles.map do |article|
+      ArticleComponent.new(article)
     end
   end
 end
