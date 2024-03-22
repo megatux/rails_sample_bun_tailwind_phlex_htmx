@@ -18,7 +18,8 @@ class Articles::IndexView < ApplicationView
       }
     }
 
-    section(id: "article-list") {
+    # list of items
+    section(id: "article-list", class: "grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4") {
       articles.each { |el| render el }
     }
   end
