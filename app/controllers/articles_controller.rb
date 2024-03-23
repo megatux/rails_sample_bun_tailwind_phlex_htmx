@@ -4,8 +4,7 @@ class ArticlesController < ApplicationController
   layout -> { ApplicationLayout }
 
   def index
-    articles = Article.all.order(id: :desc)
-    render Articles::IndexView.new(articles)
+    render Articles::IndexView.new(nil)
   end
 
   def create
@@ -13,5 +12,11 @@ class ArticlesController < ApplicationController
       name: Faker::Lorem.sentence, details: Faker::Lorem.paragraph, published: true, stock: 0
     )
     render ArticleComponent.new(new_article), layout: false
+  end
+
+  def items
+    articles = Article.all.order(id: :desc)
+    sleep 1 # this is to simulate a slow response and should be remove in a real scenario
+    render Articles::IndexView.new(articles), layout: false
   end
 end
