@@ -20,7 +20,7 @@ class Articles::IndexView < ApplicationView
   private
 
   def load_indicator_placeholder
-    div("hx-get": articles_items_path, "hx-trigger": "load", class: "flex justify-center") {
+    div("hx-get": items_articles_path, "hx-trigger": "load", class: "flex justify-center") {
       img(alt: "Loading items...",
         class: "htmx-indicator", width: "150", src: "/bars.svg")
     }
